@@ -32,7 +32,7 @@ int main() {
 
     do {
         cout << "\n  Bienvenido a nuestro programa CINECO\n";
-        cout << "  Ingresa una opción (1-8) o presiona 9 para salir:\n";  
+        cout << "  Ingresa una opción (1-9):\n";  
         cout << "  ====================================\n";
         cout << "  1. Crear una nueva tarjeta. \n";
         cout << "  2. Recargar una tarjeta. \n";
@@ -173,15 +173,26 @@ int main() {
                 break;
             }
 
+            case '6': {
+                cout << " 6. Pagar la reserva con tarjeta CINEMAS.\n";
+                break;
+            }
+                
+            case '7': {
+                cout << " 7. Visualizar las sillas del cine.\n";
+                break;
+            }
+
             case '8': {
                 cout << " 8. Visualizar el dinero en caja. \n";
                 cout << "Dinero en caja: $" << dineroEnCaja << endl;
                 break;
             }
 
-            case '9':
+            case '9': {
                 cout << "Salir. \n";
                 break;
+            }
 
             default:
                 cout << "Opción no válida. Intente nuevamente." << endl;
@@ -192,3 +203,4 @@ int main() {
     
     return 0;
 }
+
