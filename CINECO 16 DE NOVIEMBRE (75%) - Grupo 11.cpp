@@ -194,7 +194,7 @@ int main() {
             }
 
             // Mostrar el número de pago al usuario
-            cout << "Acérquese a un Efecty y pague con este número de pago: " << numeroPago << endl;
+            cout << "Acérquese a la caja y pague con este número de pago: " << numeroPago << endl;
 
             // Eliminar la reserva después de asignar el número de pago
             for (int j = i; j < contadorReservas - 1000 - 1; j++) {
