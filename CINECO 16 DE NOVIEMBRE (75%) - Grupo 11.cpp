@@ -149,11 +149,10 @@ int main() {
                 bool reservaEncontrada = false;
                 for (int i = 0; i < contadorReservas - 1000; i++) {
                     if (reservas[i].idReserva == idReservaEliminar) {
-                        // Desplazar las reservas para eliminar la reserva seleccionada
                         for (int j = i; j < contadorReservas - 1000 - 1; j++) {
                             reservas[j] = reservas[j + 1]; // Desplazar las reservas
                         }
-                        reservas[contadorReservas - 1001] = {}; // Limpiar la última reserva desplazada
+                        reservas[contadorReservas - 1001] = {};
                         contadorReservas--;  // Reducir el contador de reservas
                         cout << "Reserva eliminada exitosamente.\n";
                         reservaEncontrada = true;
@@ -181,16 +180,14 @@ int main() {
 
     for (int i = 0; i < contadorReservas - 1000; i++) {
         if (reservas[i].idReserva == numeroReserva && reservas[i].cedulaTitular == cedulaTitular) {
-            // Confirmar el pago
             cout << "Monto a pagar: $" << reservas[i].totalPago << endl;
             dineroEnCaja += reservas[i].totalPago;
 
- // Generar un número de pago aleatorio entre 8 y 10 dígitos
-            int numeroPago = 10000000 + rand() % 900000000;  // Genera un número entre 10000000 y 999999999
-
+            // Generar un número de pago aleatorio entre 8 y 10 dígitos
+            int numeroPago = 10000000 + rand() % 900000000;
             // Asegurarse de que el número de pago sea entre 8 y 10 dígitos
             if (numeroPago < 100000000) {
-                numeroPago += 1000000000;  // Para obtener 10 dígitos si es necesario
+                numeroPago += 1000000000; 
             }
 
             // Mostrar el número de pago al usuario
@@ -225,7 +222,7 @@ int main() {
     cout << "Ingrese la cédula del titular: ";
     cin >> cedulaTitular;
 
-    // Buscar la reserva en el arreglo
+    // Buscar la reserva
     bool reservaEncontrada = false;
     for (int i = 0; i < contadorReservas - 1000; i++) {
         if (reservas[i].idReserva == numeroReserva && reservas[i].cedulaTitular == cedulaTitular) {
@@ -250,7 +247,7 @@ int main() {
                 for (int j = i; j < contadorReservas - 1000 - 1; j++) {
                     reservas[j] = reservas[j + 1];
                 }
-                reservas[contadorReservas - 1001] = {}; // Limpiar la última reserva desplazada
+                reservas[contadorReservas - 1001] = {};
                 contadorReservas--; // Reducir el contador de reservas
                 reservaEncontrada = true;
             } else {
