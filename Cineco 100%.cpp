@@ -17,7 +17,7 @@ int main() {
     int contadorTarjetas = 1127;
     double SaldoInicial, DineroRecarga;
     double tarjetas[100] = {0};
-    Reserva reservas[100];  // Arreglo para almacenar las reservas
+    Reserva reservas[100];  
     double dineroEnCaja = 0.0;
     int contadorReservas = 1000;
 
@@ -92,7 +92,7 @@ int main() {
                     cout << "Ingrese la cédula del titular: ";
                     cin >> cedulaTitular;
 
-                    // Verificar si todos los caracteres son dígitos
+                    
                     bool esNumero = true;
                     for (char c : cedulaTitular) {
                         if (c < '0' || c > '9') {
@@ -141,7 +141,6 @@ int main() {
             }
 
             case '4': {
-                // Eliminar una reserva por ID
                 int idReservaEliminar;
                 cout << "Ingrese el ID de la reserva que desea eliminar: ";
                 cin >> idReservaEliminar;
@@ -150,10 +149,10 @@ int main() {
                 for (int i = 0; i < contadorReservas - 1000; i++) {
                     if (reservas[i].idReserva == idReservaEliminar) {
                         for (int j = i; j < contadorReservas - 1000 - 1; j++) {
-                            reservas[j] = reservas[j + 1]; // Desplazar las reservas
+                            reservas[j] = reservas[j + 1]; 
                         }
                         reservas[contadorReservas - 1001] = {};
-                        contadorReservas--;  // Reducir el contador de reservas
+                        contadorReservas--;  
                         cout << "Reserva eliminada exitosamente.\n";
                         reservaEncontrada = true;
                         break;
@@ -183,22 +182,22 @@ int main() {
             cout << "Monto a pagar: $" << reservas[i].totalPago << endl;
             dineroEnCaja += reservas[i].totalPago;
 
-            // Generar un número de pago aleatorio entre 8 y 10 dígitos
+            
             int numeroPago = 10000000 + rand() % 900000000;
-            // Asegurarse de que el número de pago sea entre 8 y 10 dígitos
+            
             if (numeroPago < 100000000) {
                 numeroPago += 1000000000; 
             }
 
-            // Mostrar el número de pago al usuario
+           
             cout << "Acérquese a la caja y pague con este número de pago: " << numeroPago << endl;
 
-            // Eliminar la reserva después de asignar el número de pago
+            
             for (int j = i; j < contadorReservas - 1000 - 1; j++) {
-                reservas[j] = reservas[j + 1]; // Desplazar las reservas
+                reservas[j] = reservas[j + 1]; 
             }
-            reservas[contadorReservas - 1001] = {}; // Limpiar la última reserva desplazada
-            contadorReservas--; // Reducir el contador de reservas
+            reservas[contadorReservas - 1001] = {}; 
+            contadorReservas--; 
             reservaEncontrada = true;
             break;
         }
@@ -212,43 +211,43 @@ int main() {
 
 
     case '6': {
-    cout << " 6. Pagar la reserva con tarjeta CINEMAS.\n";
+    cout << " 6. Pagar la reserva con tarjeta CINECO.\n";
     int numeroReserva;
     string cedulaTitular;
 
-    // Solicitar el número de reserva y la cédula del titular
+    
     cout << "Ingrese el número de reserva: ";
     cin >> numeroReserva;
     cout << "Ingrese la cédula del titular: ";
     cin >> cedulaTitular;
 
-    // Buscar la reserva
+  
     bool reservaEncontrada = false;
     for (int i = 0; i < contadorReservas - 1000; i++) {
         if (reservas[i].idReserva == numeroReserva && reservas[i].cedulaTitular == cedulaTitular) {
             int IDTarjeta;
-            cout << "Ingrese el ID de su tarjeta CINEMAS: ";
+            cout << "Ingrese el ID de su tarjeta CINECO: ";
             cin >> IDTarjeta;
 
-            // Verificar que el ID de la tarjeta es válido
+            
             if (IDTarjeta < 1127 || IDTarjeta >= contadorTarjetas) {
                 cout << "ID de tarjeta no válido.\n";
                 break;
             }
 
-            // Verificar si hay saldo suficiente
+         
             if (tarjetas[IDTarjeta - 1127] >= reservas[i].totalPago) {
                 // Descontar el saldo de la tarjeta
                 tarjetas[IDTarjeta - 1127] -= reservas[i].totalPago;
                 cout << "Pago realizado exitosamente. Nuevo saldo de la tarjeta " 
                      << IDTarjeta << ": $" << tarjetas[IDTarjeta - 1127] << endl;
 
-                // Eliminar la reserva después del pago
+              
                 for (int j = i; j < contadorReservas - 1000 - 1; j++) {
                     reservas[j] = reservas[j + 1];
                 }
                 reservas[contadorReservas - 1001] = {};
-                contadorReservas--; // Reducir el contador de reservas
+                contadorReservas--; 
                 reservaEncontrada = true;
             } else {
                 cout << "Saldo insuficiente en la tarjeta.\n";
@@ -269,23 +268,23 @@ int main() {
     int numeroReserva;
     string cedulaActual, nuevaCedula;
 
-    // Solicitar el número de reserva
+    
     cout << "Ingrese el número de reserva: ";
     cin >> numeroReserva;
 
-    // Solicitar la cédula del titular actual
+ 
     cout << "Ingrese la cédula del titular actual: ";
     cin >> cedulaActual;
 
-    // Buscar la reserva
+
     bool reservaEncontrada = false;
     for (int i = 0; i < contadorReservas - 1000; i++) {
         if (reservas[i].idReserva == numeroReserva && reservas[i].cedulaTitular == cedulaActual) {
-            // Solicitar la nueva cédula
+           
             cout << "Ingrese la cédula de la persona que recibirá la titularidad: ";
             cin >> nuevaCedula;
 
-            // Actualizar la cédula del titular
+ 
             reservas[i].cedulaTitular = nuevaCedula;
 
             cout << "La reserva con número " << numeroReserva 
