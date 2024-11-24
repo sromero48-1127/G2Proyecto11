@@ -24,7 +24,7 @@ int main() {
     do {
         cout << "\n  Bienvenido a nuestro programa CINECO\n";
         cout << "\n  Autores: Sebastian Romero, Cesar Bueno & Andres Hernandez\n";
-        cout << "  Ingresa una opción (1-9):\n";
+        cout << "\n  Ingresa una opción (1-9):\n";
         cout << "  ====================================\n";
         cout << "  1. Crear una nueva tarjeta. \n";
         cout << "  2. Recargar una tarjeta. \n";
